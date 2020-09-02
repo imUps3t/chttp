@@ -1,0 +1,6 @@
+{
+"webroot": "/var/www/html",
+"port": "80",
+"page_not_found": "404.html",
+"default_page": "success.html"
+}

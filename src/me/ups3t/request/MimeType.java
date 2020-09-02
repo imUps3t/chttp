@@ -28,6 +28,8 @@ public class MimeType {
 
         if(fileExtension.endsWith(".gif")) return "image/gif";
 
+        if(fileExtension.equalsIgnoreCase(".ico")) return "image/vnd.microsoft.icon";
+
         return "text/plain";
     }
 

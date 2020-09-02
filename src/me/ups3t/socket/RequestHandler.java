@@ -43,13 +43,16 @@ public class RequestHandler implements Runnable {
 
                     if(line.isEmpty()) {
                         checkHeader = false;
-                        System.out.println(header);
+                        // System.out.println(header);
                         WebRequest request = new WebRequest(header);
                         client.setKeepAlive(request.getConnection() == "keep-alive");
                         WebResponse response = new WebResponse(request);
 
-                        System.out.println(response.getResponseHeader());
-                        System.out.println(response.getResponseData());
+                        System.out.println("[IP: " + client.getInetAddress().getHostAddress() + "] [Request: " + request.getPage() + "] [Method: " + request.getMethod() + "]");
+
+                        // System.out.println(response.getResponseHeader());
+                        // System.out.println(response.getResponseData());
+
                         sock_out.write(response.getResponseHeader());
                         sock_out.write("\n");
                         sock_out.flush();

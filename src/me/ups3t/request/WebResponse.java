@@ -31,12 +31,12 @@ public class WebResponse {
             requestedFile = new File(Configuration.getConfig().getWebRoot(), request.getPage());
         }
 
+        if(!requestedFile.exists() || !requestedFile.canRead()) {
+            requestedFile = new File(Configuration.getConfig().getWebRoot(), Configuration.getConfig().getNotFoundPage());
+        }
         // Returning Response Headers
 
         StatusCode statusCode = new StatusCode(request);
-
-        // Add option to change 404 site in settings
-        if(statusCode.parseStatusCode() == 404) requestedFile = new File(Configuration.getConfig().getWebRoot(), Configuration.getConfig().getNotFoundPage());
 
         fileLength = (int) requestedFile.length();
 
